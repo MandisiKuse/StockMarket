@@ -1,10 +1,10 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    //alias(libs.plugins.kotlinKapt)
-   // alias(libs.plugins.daggerHilt)
-    //alias(libs.plugins.kotlinParcelize)
-    //alias(libs.plugins.googleKsp)
+    alias(libs.plugins.kotlinKapt)
+    alias(libs.plugins.daggerHilt)
+    alias(libs.plugins.kotlinParcelize)
+    alias(libs.plugins.googleKsp)
 }
 
 android {
@@ -70,17 +70,39 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    coreLibraryDesugaring(libs.com.android.tools)
 
-//    // OpenCSV
-//    implementation(libs.com.opencsv)
-//
-//    // Compose dependencies
-//    implementation(libs.androidx.lifecycle.viewmodel.compose)
-//    implementation(libs.androidx.compose.material.icons.extended)
-//    implementation(libs.com.google.accompanist.flowlayout)
-//    implementation(libs.androidx.paging.compose)
-//    implementation(libs.com.google.accompanist.swiperefresh)
-//
-//    // Compose Nav Destinations
-//    implementation(libs.io.github.raamcosta.compose.destinations)
+    // OpenCSV
+    implementation(libs.com.opencsv)
+
+    // Compose dependencies
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.compose.material.icons.extended)
+    implementation(libs.com.google.accompanist.flowlayout)
+    implementation(libs.androidx.paging.compose)
+    implementation(libs.com.google.accompanist.swiperefresh)
+
+    // Compose Nav Destinations
+    implementation(libs.io.github.raamcosta.compose.destinations.core)
+    ksp(libs.io.github.raamcosta.compose.destinations.ksp)
+
+    //Dagger - Hilt
+    implementation(libs.com.google.dagger.hilt.android)
+    kapt(libs.com.google.dagger.hilt.android.compiler)
+    implementation(libs.androidx.hilt.lifecycle.viewmodel)
+    kapt(libs.androidx.hilt.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
+
+    // Retrofit
+    implementation(libs.com.squareup.retrofit2.retrofit)
+    implementation(libs.com.squareup.retrofit2.converter.moshi)
+    implementation(libs.com.squareup.okhttp3.okhttp)
+//    implementation(libs.com.squareup.okhttp3.okhttp.logging)
+
+    // Room
+    implementation(libs.androidx.room.runtime)
+    ksp(libs.androidx.room.runtime.compiler)
+
+    // Kotlin Extensions and Coroutines support for Room
+    implementation(libs.androidx.room.ktx)
 }
