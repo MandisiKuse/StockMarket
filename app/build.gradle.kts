@@ -63,6 +63,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.compose.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -97,7 +98,7 @@ dependencies {
     implementation(libs.com.squareup.retrofit2.retrofit)
     implementation(libs.com.squareup.retrofit2.converter.moshi)
     implementation(libs.com.squareup.okhttp3.okhttp)
-//    implementation(libs.com.squareup.okhttp3.okhttp.logging)
+    implementation(libs.com.squareup.okhttp3.logging.interceptor)
 
     // Room
     implementation(libs.androidx.room.runtime)
